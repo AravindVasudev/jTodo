@@ -1,5 +1,6 @@
 package io.github.aravindvasudev.jtodo;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -31,7 +32,13 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        datePicker.setValue(LocalDate.now());
+        // focus description
+        Platform.runLater(() -> {
+            description.requestFocus();
+        });
+
+        // set datePicker to today
+        refresh();
     }
 
     @FXML
@@ -42,6 +49,9 @@ public class Controller implements Initializable {
         refresh();
     }
 
+    /**
+     * clears description and sets datePicker to now
+     */
     private void refresh() {
         datePicker.setValue(LocalDate.now());
         description.setText(null);

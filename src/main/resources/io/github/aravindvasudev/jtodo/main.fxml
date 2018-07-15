@@ -14,7 +14,7 @@
          <children>
             <DatePicker fx:id="datePicker" layoutX="6.0" layoutY="4.0" promptText="Add deadline..." />
             <Separator layoutX="212.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="33.0" prefWidth="6.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="-2.0" />
-            <TextField fx:id="description" layoutX="218.0" layoutY="4.0" prefHeight="26.0" prefWidth="571.0" promptText="Add description..." />
+            <TextField fx:id="description" layoutX="218.0" layoutY="4.0" onAction="#addTodo" prefHeight="26.0" prefWidth="571.0" promptText="Add description..." />
             <Button fx:id="addButton" layoutX="795.0" layoutY="4.0" mnemonicParsing="false" onAction="#addTodo" prefHeight="26.0" prefWidth="39.0" text="✔" />
          </children>
       </AnchorPane>
