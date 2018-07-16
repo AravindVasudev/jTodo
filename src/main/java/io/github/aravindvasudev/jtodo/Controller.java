@@ -21,12 +21,7 @@ public class Controller implements Initializable {
     @FXML private TextField description;
     @FXML private DatePicker datePicker;
 
-    @FXML private ListView<Todo> todoList;
-
-//    @FXML private TableView<Todo> table;
-//    @FXML private TableColumn<Todo, String> todoStartTime;
-//    @FXML private TableColumn<Todo, String> todoDeadline;
-//    @FXML private TableColumn<Todo, String> todoDescription;
+    @FXML private TableView<Todo> table;
 
     private ObservableList<Todo> list = FXCollections.observableArrayList();
 
@@ -65,10 +60,10 @@ public class Controller implements Initializable {
      */
     @FXML
     private void deleteTodoEntry(MouseEvent e) {
-        if (todoList.getSelectionModel().getSelectedItem() == null) return;
+        if (table.getSelectionModel().getSelectedItem() == null) return;
 
         if (e.getButton().equals(MouseButton.SECONDARY)) {
-            list.remove(todoList.getSelectionModel().getSelectedItem());
+            list.remove(table.getSelectionModel().getSelectedItem());
         }
     }
 
