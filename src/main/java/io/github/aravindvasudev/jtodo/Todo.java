@@ -4,11 +4,13 @@ import java.time.LocalDate;
 
 public class Todo {
     private String description;
-    private LocalDate date;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public Todo(String description, LocalDate date) {
+    public Todo(String description, LocalDate startDate, LocalDate endDate) {
         this.description = description;
-        this.date = date;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public String getDescription() {
@@ -19,16 +21,19 @@ public class Todo {
         this.description = description;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s → %s", this.getDate(), this.getDescription());
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 }

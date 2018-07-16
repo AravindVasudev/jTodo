@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
@@ -21,17 +18,15 @@ import java.util.ResourceBundle;
  * Controller for main.fxml
  */
 public class Controller implements Initializable {
-    @FXML
-    private Button addButton;
+    @FXML private TextField description;
+    @FXML private DatePicker datePicker;
 
-    @FXML
-    private TextField description;
+    @FXML private ListView<Todo> todoList;
 
-    @FXML
-    private DatePicker datePicker;
-
-    @FXML
-    private ListView<Todo> todoList;
+//    @FXML private TableView<Todo> table;
+//    @FXML private TableColumn<Todo, String> todoStartTime;
+//    @FXML private TableColumn<Todo, String> todoDeadline;
+//    @FXML private TableColumn<Todo, String> todoDescription;
 
     private ObservableList<Todo> list = FXCollections.observableArrayList();
 
@@ -58,7 +53,7 @@ public class Controller implements Initializable {
     @FXML
     private void addTodo(Event e) {
         if (description.getText() == null) return;
-        list.add(new Todo(description.getText(), datePicker.getValue()));
+        list.add(new Todo(description.getText(), LocalDate.now(), datePicker.getValue()));
 
         refresh();
     }
