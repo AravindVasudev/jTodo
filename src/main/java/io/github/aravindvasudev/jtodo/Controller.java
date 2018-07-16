@@ -22,18 +22,18 @@ import java.util.ResourceBundle;
  */
 public class Controller implements Initializable {
     @FXML
-    Button addButton;
+    private Button addButton;
 
     @FXML
-    TextField description;
+    private TextField description;
 
     @FXML
-    DatePicker datePicker;
+    private DatePicker datePicker;
 
     @FXML
-    ListView<Todo> todoList;
+    private ListView<Todo> todoList;
 
-    ObservableList<Todo> list = FXCollections.observableArrayList();
+    private ObservableList<Todo> list = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,9 +44,10 @@ public class Controller implements Initializable {
 
         // set datePicker to today
         refresh();
+    }
 
-        // Init todoList
-        todoList.setItems(list);
+    public ObservableList<Todo> getList() {
+        return list;
     }
 
     /**

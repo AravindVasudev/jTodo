@@ -5,10 +5,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.aravindvasudev.jtodo.Controller">
+<SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.aravindvasudev.jtodo.Controller">
    <items>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="838.0">
          <children>
@@ -18,6 +20,13 @@
             <Button fx:id="addButton" layoutX="795.0" layoutY="4.0" mnemonicParsing="false" onAction="#addTodo" prefHeight="26.0" prefWidth="39.0" text="✔" />
          </children>
       </AnchorPane>
-      <ListView fx:id="todoList" onMouseClicked="#deleteTodoEntry" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="todoList" onMouseClicked="#deleteTodoEntry" prefHeight="200.0" prefWidth="200.0" items="${controller.list}"/>
+      <TableView prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="110.0" text="Start Time" />
+          <TableColumn minWidth="0.0" prefWidth="117.0" text="Deadlines" />
+          <TableColumn prefWidth="611.0" text="Description" />
+        </columns>
+      </TableView>
    </items>
 </SplitPane>
