@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,6 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
 
 <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.aravindvasudev.jtodo.Controller">
    <items>
@@ -22,11 +22,14 @@
          </children>
       </AnchorPane>
       <TableView fx:id="table" items="${controller.list}" onMouseClicked="#deleteTodoEntry" prefHeight="200.0" prefWidth="200.0">
+        <placeholder>
+            <Label text="Nothing to do. Yay!" />
+        </placeholder>
         <columns>
             <TableColumn prefWidth="110.0" text="Start Time">
                 <cellValueFactory><PropertyValueFactory property="startDate" /></cellValueFactory>
             </TableColumn>
-            <TableColumn minWidth="0.0" prefWidth="117.0" text="Deadlines">
+            <TableColumn minWidth="0.0" prefWidth="117.0" text="Deadline">
                 <cellValueFactory><PropertyValueFactory property="endDate" /></cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="611.0" text="Description">

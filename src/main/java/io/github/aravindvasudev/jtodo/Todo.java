@@ -1,16 +1,25 @@
 package io.github.aravindvasudev.jtodo;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Todo {
     private String description;
-    private LocalDate startDate;
+    private Date startDate;
     private LocalDate endDate;
 
-    public Todo(String description, LocalDate startDate, LocalDate endDate) {
+    private SimpleDateFormat startDateFormat;
+    private DateTimeFormatter endDateFormat;
+
+    public Todo(String description, Date startDate, LocalDate endDate) {
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+
+        startDateFormat = new SimpleDateFormat("HH:mm MM/dd");
+        endDateFormat = DateTimeFormatter.ofPattern("MM/dd");
     }
 
     public String getDescription() {
@@ -21,16 +30,16 @@ public class Todo {
         this.description = description;
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
+    public String getStartDate() {
+        return startDateFormat.format(startDate);
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
-        return endDate;
+    public String getEndDate() {
+        return endDate.format(endDateFormat);
     }
 
     public void setEndDate(LocalDate endDate) {

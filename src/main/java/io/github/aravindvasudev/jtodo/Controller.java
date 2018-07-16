@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -48,7 +49,7 @@ public class Controller implements Initializable {
     @FXML
     private void addTodo(Event e) {
         if (description.getText() == null) return;
-        list.add(new Todo(description.getText(), LocalDate.now(), datePicker.getValue()));
+        list.add(new Todo(description.getText(), new Date(), datePicker.getValue()));
 
         refresh();
     }
