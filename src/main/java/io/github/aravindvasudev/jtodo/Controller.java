@@ -10,11 +10,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for main.fxml
+ */
 public class Controller implements Initializable {
     @FXML
     Button addButton;
@@ -39,14 +44,36 @@ public class Controller implements Initializable {
 
         // set datePicker to today
         refresh();
+
+        // Init todoList
+        todoList.setItems(list);
     }
 
+    /**
+     * Add entry to todoList and reset description
+     *
+     * @param e Event
+     */
     @FXML
     private void addTodo(Event e) {
+        if (description.getText() == null) return;
         list.add(new Todo(description.getText(), datePicker.getValue()));
-        todoList.setItems(list);
 
         refresh();
+    }
+
+    /**
+     * delete todoList entry on right click
+     *
+     * @param e MouseEvent
+     */
+    @FXML
+    private void deleteTodoEntry(MouseEvent e) {
+        if (todoList.getSelectionModel().getSelectedItem() == null) return;
+
+        if (e.getButton().equals(MouseButton.SECONDARY)) {
+            list.remove(todoList.getSelectionModel().getSelectedItem());
+        }
     }
 
     /**
