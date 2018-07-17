@@ -1,0 +1,51 @@
+/**
+ * SplitPane theming
+ */
+.split-pane {
+    -fx-font-family: "monospace";
+}
+
+/* remove SplitPane divider */
+.split-pane-divider {
+    -fx-padding: 0; 
+}
+
+/**
+ * AnchorPane theming
+ */
+#addButton {
+    -fx-background-color: transparent;
+}
+
+#description:focused, #datePicker:focused {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color:rgba(204, 201, 189, 0.8);
+}
+ 
+
+
+
+/**
+ * TableView theming
+ */
+/* TableView header background */
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #CCC9BD;
+}
+
+/* TableView header font styling */
+.table-view .column-header-background .label {
+    -fx-text-fill: #553739;
+    -fx-font-family: "monospace";
+    -fx-font-size: 14px;
+}
+
+/* Hide column seperator */
+.table-view {
+    -fx-table-cell-border-color: transparent;
+    
+    -fx-selection-bar: #E3E0D3;
+    -fx-selection-bar-non-focused: #E6E3D8;
+}
