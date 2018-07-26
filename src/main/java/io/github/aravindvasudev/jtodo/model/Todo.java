@@ -10,16 +10,17 @@ public class Todo {
     private Date startDate;
     private LocalDate endDate;
 
-    private SimpleDateFormat startDateFormat;
-    private DateTimeFormatter endDateFormat;
+    private static SimpleDateFormat startDateFormat = new SimpleDateFormat("HH:mm MM/dd");
+    private static DateTimeFormatter endDateFormat = DateTimeFormatter.ofPattern("d MMMM yyyy");
 
     public Todo(String description, Date startDate, LocalDate endDate) {
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
 
-        startDateFormat = new SimpleDateFormat("HH:mm MM/dd");
-        endDateFormat = DateTimeFormatter.ofPattern("MM/dd");
+    public Todo(String description, String startDate, String endDate) throws Exception {
+        this(description, startDateFormat.parse(startDate), LocalDate.parse(endDate, endDateFormat));
     }
 
     public String getDescription() {

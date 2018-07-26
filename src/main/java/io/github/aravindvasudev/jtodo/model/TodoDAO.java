@@ -6,5 +6,6 @@ public interface TodoDAO {
     public void add(Todo todo);
     public void remove(Todo toDeleteTodo);
     public void save() throws Exception;
+    public void load() throws Exception;
     public ObservableList<Todo> getList();
 }
