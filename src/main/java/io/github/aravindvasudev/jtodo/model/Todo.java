@@ -1,4 +1,4 @@
-package io.github.aravindvasudev.jtodo;
+package io.github.aravindvasudev.jtodo.model;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

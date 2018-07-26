@@ -19,7 +19,7 @@
             <Button fx:id="addButton" layoutX="795.0" layoutY="4.0" mnemonicParsing="false" onAction="#addTodo" prefHeight="26.0" prefWidth="39.0" text="✔" />
          </children>
       </AnchorPane>
-      <TableView fx:id="table" items="${controller.list}" onMouseClicked="#deleteTodoEntry" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="table" items="${controller.todoDAO.list}" onMouseClicked="#deleteTodoEntry" prefHeight="200.0" prefWidth="200.0">
         <placeholder>
             <Label text="Nothing to do. Yay!" />
         </placeholder>

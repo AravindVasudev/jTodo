@@ -1,8 +1,9 @@
 package io.github.aravindvasudev.jtodo;
 
+import io.github.aravindvasudev.jtodo.model.Todo;
+import io.github.aravindvasudev.jtodo.model.TodoCSVModel;
+import io.github.aravindvasudev.jtodo.model.TodoDAO;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,7 +27,7 @@ public class Controller implements Initializable {
 
     @FXML private TableView<Todo> table;
 
-    private ObservableList<Todo> list = FXCollections.observableArrayList();
+    private TodoDAO todoDAO = new TodoCSVModel();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,8 +40,8 @@ public class Controller implements Initializable {
         refresh();
     }
 
-    public ObservableList<Todo> getList() {
-        return list;
+    public TodoDAO getTodoDAO() {
+        return todoDAO;
     }
 
     /**
@@ -51,7 +52,7 @@ public class Controller implements Initializable {
     @FXML
     private void addTodo(Event e) {
         if (description.getText() == null) return;
-        list.add(new Todo(description.getText(), new Date(), datePicker.getValue()));
+        todoDAO.add(new Todo(description.getText(), new Date(), datePicker.getValue()));
 
         refresh();
     }
@@ -66,7 +67,7 @@ public class Controller implements Initializable {
         if (table.getSelectionModel().getSelectedItem() == null) return;
 
         if (e.getButton().equals(MouseButton.SECONDARY)) {
-            list.remove(table.getSelectionModel().getSelectedItem());
+            todoDAO.remove(table.getSelectionModel().getSelectedItem());
         }
     }
 
