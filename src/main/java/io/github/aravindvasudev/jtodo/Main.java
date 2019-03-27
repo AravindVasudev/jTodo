@@ -5,9 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 public class Main extends Application {
     Controller mainController;
+    public SessionFactory sessionFactory = new Configuration()
+            .configure()
+            .buildSessionFactory();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -25,6 +30,7 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         mainController.getTodoDAO().save();
+        sessionFactory.close();
     }
 
     public static void main(String[] args) {
