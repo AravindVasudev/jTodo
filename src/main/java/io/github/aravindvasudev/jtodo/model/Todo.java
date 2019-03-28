@@ -1,9 +1,6 @@
 package io.github.aravindvasudev.jtodo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,6 +10,7 @@ import java.util.Date;
 @Table(name = "todo")
 public class Todo {
     @Id
+    @GeneratedValue()
     @Column(name = "id")
     private int id;
 

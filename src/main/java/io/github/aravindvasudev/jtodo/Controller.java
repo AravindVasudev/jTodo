@@ -3,6 +3,7 @@ package io.github.aravindvasudev.jtodo;
 import io.github.aravindvasudev.jtodo.model.Todo;
 import io.github.aravindvasudev.jtodo.model.TodoCSVModel;
 import io.github.aravindvasudev.jtodo.model.TodoDAO;
+import io.github.aravindvasudev.jtodo.model.TodoDBModel;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class Controller implements Initializable {
 
     @FXML private TableView<Todo> table;
 
-    private TodoDAO todoDAO = new TodoCSVModel();
+    private TodoDAO todoDAO = new TodoDBModel();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
